@@ -1,0 +1,168 @@
+.behindcloud{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    height: 60px;
+    width: auto;
+}
+.bhindGround{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    max-height: 300px;
+    z-index: 5;
+}
+.tutor{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    z-index: 10;
+    max-height: 450px;
+}
+.cloudans{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top:15%;
+    left: 10%;
+    height: 230px;
+    width: 50%;
+}
+.bots{
+    z-index: 10;
+    height: 180px;
+    
+}
+.answers{
+    position: absolute;
+    bottom: 10px;
+    left: 10%;
+    z-index: 12;
+    display: flex;
+}
+.valuecount{
+    display: flex;
+    position: absolute;
+    top:8%;
+    right: 10%;
+
+}
+.Count{
+    font-weight: 30px;
+    position: relative;
+    translate: (50%,50%);
+    z-index: 14;
+}
+.Question{
+    position: absolute;
+    font-size: 40px;
+    left: 10%;
+    font-weight: bold;
+    color: #5F18BA;
+    z-index: 20;
+}
+
+
+@media (max-width:1475px) {
+
+    .tutor{
+        width: 300px;
+        height: 300px;
+        right: 0;
+        bottom: 20%;
+    }
+    .bots{
+        width: 40%;
+        height: 120px;
+    }
+    .Question{
+        font-size: 30px;
+    }
+    .options{
+        width: 120px;
+        height: 200px;
+        
+    }
+    .answers{
+        bottom: 15%;
+    }
+    .cloudans{
+        width: 60%;
+    }
+    .valuecount{
+        height: 100px;
+        width: 100px;
+    }
+    .valimg{
+        height: 130px;
+        width: 130px; 
+    }
+}
+@media (max-width:778px) {
+    .bhindGround{
+        height: 200px;
+        width: 100vw;
+    }
+    .tutor{
+      height: 200px;
+      width: 200px;
+      bottom: 20%;
+    }
+    .cloudans{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        top:15%;
+        left: 10%;
+        flex-flow: wrap;
+        height: 250px;
+        width: 80%;
+    }
+    .bots{
+        z-index: 10;
+        height: 100px;
+        width: 100px;
+        position: relative;
+        top: 10px;
+    }
+    .bots:nth-child(4){
+        top: -10px;
+    }
+    .bots:nth-child(5){
+        top: -10px;
+    }
+    .answers{
+        bottom: 10%;
+        left: 10%;
+        z-index: 12;
+        display: flex;
+        width: 70vw;
+        /* flex-flow: wrap; */
+        align-items: center;
+        justify-content: center;
+    }
+    .valuecount{
+        display: none;
+    
+    }
+    .Count{
+        font-weight: 30px;
+        position: relative;
+        translate: (50%,50%);
+        z-index: 14;
+    }
+    .Question{
+        position: absolute;
+        font-size: 20px;
+        left: 10%;
+        font-weight: bold;
+        color: #5F18BA;
+    }
+    .options{
+        width: 80px;
+        height: auto;
+    }
+}

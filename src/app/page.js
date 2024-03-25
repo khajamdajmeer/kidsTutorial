@@ -1,95 +1,66 @@
+"use client";
 import Image from "next/image";
+
+import { useEffect } from "react";
 import styles from "./page.module.css";
+import styled from "styled-components";
+import { useRouter } from 'next/navigation';
+import Cookies from "js-cookie";
+import {auth} from './FireBase-config';
+import firebase from 'firebase/app';
 
-export default function Home() {
+const Home=()=> {
+  const history = useRouter();
+  const HandleLessonButton = (page)=>{
+    history.push(`/${page}`)
+  }
+  const HandleLogout = ()=>{
+    const cookies = Cookies.get()
+    for(const cookie in cookies){
+      Cookies.remove(cookie)
+    }
+    history.push('/login')
+    
+  }
+  useEffect(()=>{
+    const id = auth;
+  })
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <>
+    
+    <Navbar>
+    <Menu>
+      <MenuList>
+        <button onClick={HandleLogout}>logout</button>
+      </MenuList>
+    </Menu>
+    </Navbar>
+    <CountLesson onClick={()=>HandleLessonButton('countlesson')}>Count Lessons</CountLesson>
+    </>
   );
 }
+
+const CountLesson = styled.button({
+  padding:'5px 10px',
+  margin:'50px 50px',
+
+})
+const Navbar = styled.div({
+  width:'100vw',
+  height:'40px',
+  background:'black',
+  display:'flex',
+  alignItems:'center',
+  justifyContent:'end',
+  color:'wheat'
+});
+const Menu = styled.ul({
+  display:'flex',
+  listStyle:'none'
+})
+const MenuList = styled.li({
+  padding:'0 10px',
+  fontWeight:'bold',
+  fontSize:'18px'
+})
+export default Home;

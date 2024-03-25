@@ -9,12 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "firebase": "^10.9.0",
+    "google-icon": "^1.0.1",
+    "howler": "^2.2.4",
+    "js-cookie": "^3.0.5",
+    "js-cookies": "^1.0.4",
+    "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.4"
+    "react-hot-toast": "^2.4.1",
+    "styled-components": "^6.1.8",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-next": "14.1.4",
+    "file-loader": "^6.2.0"
   }
 }
